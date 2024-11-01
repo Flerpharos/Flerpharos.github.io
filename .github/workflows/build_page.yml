@@ -1,9 +1,6 @@
 name: Build Sveltekit Static
 
-on:
-  push:
-    branches: 
-      - deploy
+on: [push]
 
 jobs:
   build:
@@ -34,6 +31,7 @@ jobs:
   
   deploy:
     needs: build
+    if: github.ref == 'refs/heads/deploy'
     runs-on: ubuntu-latest
     permissions:
       pages: write
