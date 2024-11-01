@@ -19,6 +19,11 @@ jobs:
           node-version: 20
           cache: 'pnpm'
 
+      - name: Setup Adapter for SSG
+        run: |
+          rm svelte.config.js
+          mv svelte-config.deploy.js svelte-config.js
+
       - name: Build Static Sveltekit
         run: |
           pnpm install
